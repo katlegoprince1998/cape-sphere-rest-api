@@ -9,5 +9,4 @@ public class CapeSphereApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CapeSphereApiApplication.class, args);
 	}
-
 }

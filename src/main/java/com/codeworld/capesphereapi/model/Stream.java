@@ -22,5 +22,12 @@ public class Stream {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stream_sequence")
     private Long streamID;
     private String name;
+    //create a relationship with candidate
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "candidateID",
+            referencedColumnName = "candidate_id"
+    )
+    private Candidate candidate;
 
 }
