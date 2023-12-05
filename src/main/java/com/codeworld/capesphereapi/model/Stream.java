@@ -22,7 +22,5 @@ public class Stream {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stream_sequence")
     private Long streamID;
     private String name;
-    @ManyToOne
-    @JoinColumn(name = "cohort_id", referencedColumnName = "cohortID")
-    private Cohort cohort;
+
 }

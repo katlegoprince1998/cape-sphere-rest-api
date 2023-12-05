@@ -30,15 +30,5 @@ public class Cohort {
     private LocalDate startDate;
     private LocalDate endDate;
 
-    @OneToMany(
-            mappedBy = "Cohort",
-            cascade = CascadeType.ALL
-    )
-    private List<Stream>  streams;
 
-    @OneToMany(
-            mappedBy = "Cohort",
-            cascade = CascadeType.ALL
-    )
-    private List<Candidate> candidates;
 }

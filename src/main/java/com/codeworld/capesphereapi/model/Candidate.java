@@ -27,14 +27,5 @@ public class Candidate {
     @Embedded
     private CandidateKin candidateKin;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(referencedColumnName = "streamID", name = "stream_id")
-    private Stream stream;
 
-    @ManyToOne
-    @JoinColumn(
-            name = "cohort_id",
-            referencedColumnName = "cohortID"
-    )
-    private Cohort cohort;
 }
