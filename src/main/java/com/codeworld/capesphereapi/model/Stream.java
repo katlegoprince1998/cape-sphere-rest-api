@@ -30,4 +30,19 @@ public class Stream {
     )
     private Candidate candidate;
 
+    //create a relationship with Cohort
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "cohort_id",
+            referencedColumnName = "cohortid"
+    )
+    private Cohort cohort;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "mentor_id",
+            referencedColumnName = "mentor_id"
+    )
+    private Mentor mentor;
 }
