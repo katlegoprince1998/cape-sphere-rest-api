@@ -1,6 +1,7 @@
 package com.codeworld.capesphereapi.model;
 
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Embeddable
+@Table(name = "candidate_kin")
 
 public class CandidateKin {
     private String nok_firstname;

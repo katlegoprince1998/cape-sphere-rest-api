@@ -6,7 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,9 +29,13 @@ public class Candidate {
 
     private String phoneNumber;
     private String email;
+    private String password;
+    private String role;
 
     @Embedded
-    private CandidateKin candidateKin;
+    @ElementCollection
+    @CollectionTable(name = "candidate_kin", joinColumns = @JoinColumn(name = "candidateid"))
+    private List<CandidateKin> candidateKin = new ArrayList<>();
 
     //create a relationship between candidate and module
     @JsonIgnore
