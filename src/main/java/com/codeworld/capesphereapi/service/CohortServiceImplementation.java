@@ -41,22 +41,25 @@ public class CohortServiceImplementation implements CohortService{
         cohortRepository.delete(cohort1);
         return "Cohort deleted Successfully";
     }
-
     @Override
     public Cohort updateCohort(Cohort req, Long cohort_id) throws CohortException {
         Cohort cohort = findCohortById(cohort_id);
         if(Objects.nonNull(req.getName()) && !"".equalsIgnoreCase(req.getName())){
             cohort.setName(req.getName());
         }
-
-        return null;
+        if (Objects.nonNull(req.getEndDate())){
+            cohort.setEndDate(req.getEndDate());
+        }
+        if (Objects.nonNull(req.getStartDate())){
+            cohort.setStartDate(req.getStartDate());
+        }
+        Cohort updateAndSaveCohort = cohortRepository.save(cohort);
+        return updateAndSaveCohort;
     }
-
     @Override
     public Cohort findCohortById(Long cohort_id) throws CohortException {
         return null;
     }
-
     @Override
     public List<Cohort> getAllCohorts() {
         return null;

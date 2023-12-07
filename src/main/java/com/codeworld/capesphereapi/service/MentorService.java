@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface MentorService {
     Mentor createMentor(CreateMentorRequest request);
-    Mentor updateMentor(Mentor mentor, Long mentor_id) throws MentorException;
+    Mentor updateMentor(Mentor req, Long mentor_id) throws MentorException;
     Mentor findMentorById(Long mentor_id) throws MentorException;
     String deleteMentor(Long mentor_id) throws Exception;
     List<Mentor> getAllMentors();

@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+
 @Service
 public class MentorServiceImplementation implements MentorService{
     private MentorRepository mentorRepository;
@@ -25,19 +28,39 @@ public class MentorServiceImplementation implements MentorService{
         return saveMentor;
     }
     @Override
-    public Mentor updateMentor(Mentor mentor, Long mentor_id) throws MentorException {
-        return null;
+    public Mentor updateMentor(Mentor req, Long mentor_id) throws MentorException {
+
+        Mentor mentor1 = findMentorById(mentor_id);
+        if(Objects.nonNull(req.getFullName()) && !"".equalsIgnoreCase(req.getFullName())){
+            mentor1.setFullName(req.getFullName());
+        }
+        if(Objects.nonNull(req.getEmail()) && !"".equalsIgnoreCase(req.getEmail())){
+            mentor1.setEmail(req.getEmail());
+        }
+        if(Objects.nonNull(req.getPhone()) && !"".equalsIgnoreCase(req.getPhone())){
+            mentor1.setEmail(req.getPhone());
+        }
+        Mentor upadteAndSaveMentor =mentorRepository.save(mentor1);
+        return upadteAndSaveMentor;
     }
     @Override
     public Mentor findMentorById(Long mentor_id) throws MentorException {
-        return null;
+        Optional<Mentor> optionalMentor = mentorRepository.findById(mentor_id);
+
+        if(optionalMentor.isPresent()){
+           return optionalMentor.get();
+        }
+        throw new MentorException("Mentor Is Not Available");
+
     }
     @Override
     public String deleteMentor(Long mentor_id) throws Exception {
-        return null;
+        Mentor mentor1 = findMentorById(mentor_id);
+        mentorRepository.delete(mentor1);
+        return "Mentor Deleted Successfully";
     }
     @Override
     public List<Mentor> getAllMentors() {
-        return null;
+        return mentorRepository.findAll();
     }
 }
