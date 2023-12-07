@@ -4,6 +4,7 @@ import com.codeworld.capesphereapi.exception.MentorException;
 import com.codeworld.capesphereapi.model.Mentor;
 import com.codeworld.capesphereapi.repository.MentorRepository;
 import com.codeworld.capesphereapi.request.CreateMentorRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -13,19 +14,20 @@ import java.util.Optional;
 
 @Service
 public class MentorServiceImplementation implements MentorService{
-    private MentorRepository mentorRepository;
-    private Mentor mentor;
-    public MentorServiceImplementation(MentorRepository mentorRepository, Mentor mentor){
+    private final MentorRepository mentorRepository;
+
+
+    public MentorServiceImplementation(MentorRepository mentorRepository){
         this.mentorRepository = mentorRepository;
-        this.mentor = mentor;
+
     }
     @Override
     public Mentor createMentor(CreateMentorRequest request) {
+        Mentor mentor = new Mentor();
         mentor.setFullName(request.getFullName());
         mentor.setEmail(request.getEmail());
         mentor.setPhone(request.getPhone());
-        Mentor saveMentor = mentorRepository.save(mentor);
-        return saveMentor;
+        return mentorRepository.save(mentor);
     }
     @Override
     public Mentor updateMentor(Mentor req, Long mentor_id) throws MentorException {
@@ -40,8 +42,7 @@ public class MentorServiceImplementation implements MentorService{
         if(Objects.nonNull(req.getPhone()) && !"".equalsIgnoreCase(req.getPhone())){
             mentor1.setEmail(req.getPhone());
         }
-        Mentor upadteAndSaveMentor =mentorRepository.save(mentor1);
-        return upadteAndSaveMentor;
+        return mentorRepository.save(mentor1);
     }
     @Override
     public Mentor findMentorById(Long mentor_id) throws MentorException {

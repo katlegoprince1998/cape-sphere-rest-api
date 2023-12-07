@@ -6,7 +6,7 @@ import com.codeworld.capesphereapi.model.Candidate;
 import com.codeworld.capesphereapi.repository.CandidateRepository;
 import com.codeworld.capesphereapi.request.LoginRequest;
 import com.codeworld.capesphereapi.response.AuthResponse;
-import com.codeworld.capesphereapi.service.CandidateServiceImplementation;
+import com.codeworld.capesphereapi.service.CustomeCandidateServiceImplementation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -28,9 +28,9 @@ public class AuthController {
     private final JwtProvider jwtProvider;
     private final PasswordEncoder passwordEncoder;
 
-    private final CandidateServiceImplementation candidateServiceImplementation;
+    private final CustomeCandidateServiceImplementation candidateServiceImplementation;
 
-    public AuthController(CandidateRepository candidateRepository, CandidateServiceImplementation
+    public AuthController(CandidateRepository candidateRepository, CustomeCandidateServiceImplementation
             candidateServiceImplementation, PasswordEncoder passwordEncoder,
                           JwtProvider jwtProvider){
         this.candidateRepository = candidateRepository;

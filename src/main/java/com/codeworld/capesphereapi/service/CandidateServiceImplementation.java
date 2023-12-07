@@ -1,35 +1,43 @@
 package com.codeworld.capesphereapi.service;
 
+import com.codeworld.capesphereapi.config.JwtProvider;
+import com.codeworld.capesphereapi.exception.CandidateException;
 import com.codeworld.capesphereapi.model.Candidate;
 import com.codeworld.capesphereapi.repository.CandidateRepository;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 @Service
-public class CandidateServiceImplementation implements UserDetailsService {
+public class CandidateServiceImplementation implements CandidateService{
+    private CandidateRepository candidateRepository;
+    private JwtProvider jwtProvider;
 
-    private final CandidateRepository candidateRepository;
-    public CandidateServiceImplementation(CandidateRepository candidateRepository){
+    public CandidateServiceImplementation(CandidateRepository candidateRepository,
+                                          JwtProvider jwtProvider){
         this.candidateRepository = candidateRepository;
+        this.jwtProvider = jwtProvider;
+    }
+    @Override
+    public Candidate findCandidateById(Long candidateId) throws CandidateException {
+        Optional<Candidate> candidate = candidateRepository.findById(candidateId);
+        if(candidate.isPresent()){
+            return candidate.get();
+        }
+        throw new CandidateException("Candidate Was Not Found");
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Candidate candidate = candidateRepository.findByEmail(username);
-        if(candidate ==null){
-            throw new UsernameNotFoundException("User not found with email -" + username);
-        }
-        List<GrantedAuthority> authorities =new ArrayList<>();
+    public Candidate findCandidateByJwt(String jwt) throws CandidateException {
+        String email = jwtProvider.getEmailFromToken(jwt);
 
-        return new User(candidate.getEmail(),
-                candidate.getPassword(), authorities);
+        Candidate candidate = candidateRepository.findByEmail(email);
+
+        if(candidate==null){
+            throw new CandidateException("Candidate with this email was not found");
+
+        }
+
+        return candidate;
     }
 }

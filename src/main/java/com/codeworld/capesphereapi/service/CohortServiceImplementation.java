@@ -14,25 +14,23 @@ import java.util.Objects;
 @Service
 public class CohortServiceImplementation implements CohortService{
 
-    private CohortRepository cohortRepository;
+    private final CohortRepository cohortRepository;
     private CandidateService candidateService;
-    private Cohort cohort;
+
 
     public CohortServiceImplementation(CohortRepository cohortRepository,
-                                       CandidateService candidateService,
-                                       Cohort cohort){
+                                       CandidateService candidateService){
         this.cohortRepository = cohortRepository;
         this.candidateService = candidateService;
-        this.cohort = cohort;
+
     }
     @Override
     public Cohort createCohort(CreateCohortRequest request) {
-
+        Cohort cohort = new Cohort();
         cohort.setName(request.getName());
         cohort.setStartDate(request.getStartDate());
         cohort.setEndDate(request.getEndDate());
-        Cohort saveCohort = cohortRepository.save(cohort);
-        return saveCohort;
+        return cohortRepository.save(cohort);
     }
 
     @Override
@@ -53,8 +51,7 @@ public class CohortServiceImplementation implements CohortService{
         if (Objects.nonNull(req.getStartDate())){
             cohort.setStartDate(req.getStartDate());
         }
-        Cohort updateAndSaveCohort = cohortRepository.save(cohort);
-        return updateAndSaveCohort;
+        return cohortRepository.save(cohort);
     }
     @Override
     public Cohort findCohortById(Long cohort_id) throws CohortException {
