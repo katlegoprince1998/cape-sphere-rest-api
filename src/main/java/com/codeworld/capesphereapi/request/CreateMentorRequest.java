@@ -1,23 +1,16 @@
-package com.codeworld.capesphereapi.model;
+package com.codeworld.capesphereapi.request;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-@Entity
-@Data
-@NoArgsConstructor
+@ToString
 @AllArgsConstructor
-@Builder
-@Table(name = "tbl_mentor")
-public class Mentor {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long mentor_id;
+@NoArgsConstructor
+public class CreateMentorRequest {
     private String fullName;
     private String email;
+    private String phone;
 
     public String getFullName() {
         return fullName;
@@ -42,6 +35,4 @@ public class Mentor {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-    private String phone;
 }

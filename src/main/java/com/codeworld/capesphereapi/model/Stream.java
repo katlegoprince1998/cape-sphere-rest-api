@@ -17,7 +17,8 @@ public class Stream {
     @Id
     @SequenceGenerator(
             name = "stream_sequence",
-            sequenceName = "stream_sequence"
+            sequenceName = "stream_sequence",
+            allocationSize = 1
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stream_sequence")
     private Long streamID;

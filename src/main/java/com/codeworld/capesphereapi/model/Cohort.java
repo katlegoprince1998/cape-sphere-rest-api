@@ -22,7 +22,8 @@ public class Cohort {
     @Id
     @SequenceGenerator(
             name = "cohort_sequence",
-            sequenceName = "cohort_sequence"
+            sequenceName = "cohort_sequence",
+            allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -33,8 +34,45 @@ public class Cohort {
     private LocalDate startDate;
     private LocalDate endDate;
 
+    public Long getCohortID() {
+        return cohortID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public Set<Stream> getStreams() {
+        return streams;
+    }
+
+    public void setStreams(Set<Stream> streams) {
+        this.streams = streams;
+    }
+
     //create a relationship with stream
     @JsonIgnore
     @OneToMany(mappedBy = "cohort")
     private Set<Stream> streams = new HashSet<>();
+
 }

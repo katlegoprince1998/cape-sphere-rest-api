@@ -74,7 +74,9 @@ public class AuthController {
 
         String token = jwtProvider.generateToken(authentication);
 
-        AuthResponse authResponse = new AuthResponse(token,"Account created successfully");
+        AuthResponse authResponse = new AuthResponse();
+        authResponse.setJwt(token);
+        authResponse.setMessage("Account created successfully");
 
         return new ResponseEntity<AuthResponse>(authResponse, HttpStatus.CREATED);
 
@@ -91,7 +93,10 @@ public class AuthController {
      SecurityContextHolder.getContext().setAuthentication(authentication);
 
      String token = jwtProvider.generateToken(authentication);
-     AuthResponse authResponse = new AuthResponse(token, "Login Success");
+     AuthResponse authResponse = new AuthResponse();
+     authResponse.setJwt(token);
+     authResponse.setMessage("Login Success");
+
      return new ResponseEntity<AuthResponse>(authResponse,HttpStatus.CREATED);
 
     }
