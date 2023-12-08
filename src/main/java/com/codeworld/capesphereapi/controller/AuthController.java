@@ -31,7 +31,7 @@ public class AuthController {
 
     public AuthController(CandidateRepository candidateRepository, CustomeCandidateServiceImplementation
             candidateServiceImplementation, PasswordEncoder passwordEncoder,
-                          JwtProvider jwtProvider){
+                          JwtProvider jwtProvider) {
         this.candidateRepository = candidateRepository;
         this.candidateServiceImplementation = candidateServiceImplementation;
         this.passwordEncoder = passwordEncoder;
@@ -41,7 +41,7 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> createCandidateHandler(
             @RequestBody Candidate candidate
-            ) throws CandidateException{
+    ) throws CandidateException {
         String email = candidate.getEmail();
         String password = candidate.getPassword();
         String firstname = candidate.getFirstname();
@@ -51,7 +51,7 @@ public class AuthController {
 
         Candidate isEmailExist = candidateRepository.findByEmail(email);
 
-        if(isEmailExist != null){
+        if (isEmailExist != null) {
             throw new CandidateException("An Account With This Email" +
                     " Already Exist");
         }
@@ -67,7 +67,7 @@ public class AuthController {
         Candidate savedCandidate = candidateRepository.save(createdCandidate);
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(
-                savedCandidate.getEmail(),savedCandidate.getPassword());
+                savedCandidate.getEmail(), savedCandidate.getPassword());
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
@@ -78,35 +78,35 @@ public class AuthController {
         authResponse.setMessage("Account created successfully");
 
         return new ResponseEntity<AuthResponse>(authResponse, HttpStatus.CREATED);
-
     }
 
     @PostMapping("/signing")
-    public  ResponseEntity<AuthResponse> loginCandidateHandler(@RequestBody
-                                                               LoginRequest loginRequest){
-     String username = loginRequest.getEmail();
-     String password = loginRequest.getPassword();
-     Authentication authentication = authenticate(username, password);
-     SecurityContextHolder.getContext().setAuthentication(authentication);
-     String token = jwtProvider.generateToken(authentication);
-     AuthResponse authResponse = new AuthResponse();
-     authResponse.setJwt(token);
-     authResponse.setMessage("Login Success");
+    public ResponseEntity<AuthResponse> loginCandidateHandler(@RequestBody
+                                                              LoginRequest loginRequest) {
+        String username = loginRequest.getEmail();
+        String password = loginRequest.getPassword();
+        Authentication authentication = authenticate(username, password);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String token = jwtProvider.generateToken(authentication);
+        AuthResponse authResponse = new AuthResponse();
+        authResponse.setJwt(token);
+        authResponse.setMessage("Login Success");
 
-     return new ResponseEntity<AuthResponse>(authResponse,HttpStatus.CREATED);
+        return new ResponseEntity<AuthResponse>(authResponse, HttpStatus.CREATED);
 
     }
+
     private Authentication authenticate(String username, String password) {
         UserDetails userDetails = candidateServiceImplementation.loadUserByUsername(username);
 
-        if(userDetails == null){
+        if (userDetails == null) {
             throw new BadCredentialsException("Invalid Username");
         }
 
-        if(!passwordEncoder.matches(password, userDetails.getPassword())){
+        if (!passwordEncoder.matches(password, userDetails.getPassword())) {
             throw new BadCredentialsException("Password Invalid");
         }
-        return new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
+        return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
     }
 
 }

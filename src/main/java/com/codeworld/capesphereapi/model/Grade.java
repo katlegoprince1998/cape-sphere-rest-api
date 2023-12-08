@@ -1,9 +1,7 @@
 package com.codeworld.capesphereapi.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -12,6 +10,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tbl_grade")
+//@Getter
+//@Setter
 public class Grade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

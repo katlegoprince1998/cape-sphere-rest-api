@@ -8,8 +8,7 @@ import com.codeworld.capesphereapi.request.GradeRequest;
 import java.util.List;
 
 public interface GradeInterface {
-    Grade createGrade(GradeRequest request, Long candidate_id,
-                      Long module_id);
+    Grade createGrade(GradeRequest request,Long candidate_i);
 
     List<Grade> candidateGrades(Long candidate_grade);
 }

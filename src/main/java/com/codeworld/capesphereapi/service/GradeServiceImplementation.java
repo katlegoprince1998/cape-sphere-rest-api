@@ -20,15 +20,15 @@ public class GradeServiceImplementation implements GradeInterface{
     @Autowired
     private CandidateRepository candidateRepository;
     @Autowired
-    private SubjectRepository moduleRepository;
+    private SubjectRepository subjectRepository;
 
     @Override
-    public Grade createGrade(GradeRequest request, Long candidate_id, Long subject_id) {
-        Subject subject = moduleRepository.findById(subject_id).get();
+    public Grade createGrade(GradeRequest request, Long candidate_id) {
+//        Subject subject = subjectRepository.findById(subject_id).get();
         Candidate candidate = candidateRepository.findById(candidate_id).get();
         Grade grade = new Grade();
         grade.setCandidate(candidate);
-//        grade.setModule(module1);
+       // grade.setSubject(subject);
         grade.setScore(request.getScore());
         grade.setTotal(request.getTotal());
         grade.setDayGraded(LocalDate.now());
