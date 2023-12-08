@@ -1,9 +1,7 @@
 package com.codeworld.capesphereapi.service;
 
 
-import com.codeworld.capesphereapi.model.Candidate;
 import com.codeworld.capesphereapi.model.Grade;
-import com.codeworld.capesphereapi.model.Module;
 import com.codeworld.capesphereapi.request.GradeRequest;
 
 

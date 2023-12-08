@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -62,17 +61,17 @@ public class Cohort {
         this.endDate = endDate;
     }
 
-    public Set<Stream> getStreams() {
+    public Set<Specialisation> getStreams() {
         return streams;
     }
 
-    public void setStreams(Set<Stream> streams) {
+    public void setStreams(Set<Specialisation> streams) {
         this.streams = streams;
     }
 
     //create a relationship with stream
     @JsonIgnore
     @OneToMany(mappedBy = "cohort")
-    private Set<Stream> streams = new HashSet<>();
+    private Set<Specialisation> streams = new HashSet<>();
 
 }

@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class CohortServiceImplementation implements CohortService{
@@ -55,10 +56,15 @@ public class CohortServiceImplementation implements CohortService{
     }
     @Override
     public Cohort findCohortById(Long cohort_id) throws CohortException {
-        return null;
+        Optional<Cohort> optionalCohort = cohortRepository.findById(cohort_id);
+
+        if(optionalCohort.isPresent()){
+            return optionalCohort.get();
+        }
+        throw new CohortException("Cohort with the specified id wa not found");
     }
     @Override
     public List<Cohort> getAllCohorts() {
-        return null;
+        return cohortRepository.findAll();
     }
 }

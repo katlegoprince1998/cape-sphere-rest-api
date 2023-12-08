@@ -32,8 +32,40 @@ public class Progress {
             cascade = CascadeType.ALL
     )
     @JoinColumn(
-            name = "module_id",
-            referencedColumnName = "module_id"
+            name = "subject_id",
+            referencedColumnName = "subject_id"
     )
-    private Module module;
+    private Subject subject;
+
+    public double getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(double current) {
+        this.current = current;
+    }
+
+    public double getOverall() {
+        return overall;
+    }
+
+    public void setOverall(double overall) {
+        this.overall = overall;
+    }
+
+    public Candidate getCandidate() {
+        return candidate;
+    }
+
+    public void setCandidate(Candidate candidate) {
+        this.candidate = candidate;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
 }

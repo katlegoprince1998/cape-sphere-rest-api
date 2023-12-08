@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.engine.internal.Cascade;
 
 import java.time.LocalDate;
 
@@ -32,8 +31,48 @@ public class Grade {
     //create a relationship with module
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
-            name = "module_id",
-            referencedColumnName = "module_id"
+            name = "subject_id",
+            referencedColumnName = "subject_id"
     )
-    private Module module;
+    private Subject subject;
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public LocalDate getDayGraded() {
+        return dayGraded;
+    }
+
+    public void setDayGraded(LocalDate dayGraded) {
+        this.dayGraded = dayGraded;
+    }
+
+    public Candidate getCandidate() {
+        return candidate;
+    }
+
+    public void setCandidate(Candidate candidate) {
+        this.candidate = candidate;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
 }

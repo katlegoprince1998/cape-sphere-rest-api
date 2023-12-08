@@ -40,7 +40,7 @@ public class Candidate {
     //create a relationship between candidate and module
     @JsonIgnore
     @ManyToMany(mappedBy = "candidates")
-    private Set<Module> modules = new HashSet<>();
+    private Set<Subject> modules = new HashSet<>();
     //create a relationship with grade
     @JsonIgnore
     @OneToMany(mappedBy = "candidate")
@@ -119,6 +119,6 @@ public class Candidate {
     //create a relationship with stream
     @JsonIgnore
     @OneToMany(mappedBy = "candidate")
-    private Set<Stream> streams = new HashSet<>();
+    private Set<Specialisation> streams = new HashSet<>();
 
 }

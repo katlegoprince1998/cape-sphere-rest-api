@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-
     private final CandidateRepository candidateRepository;
     private final JwtProvider jwtProvider;
     private final PasswordEncoder passwordEncoder;
@@ -80,7 +79,6 @@ public class AuthController {
 
         return new ResponseEntity<AuthResponse>(authResponse, HttpStatus.CREATED);
 
-
     }
 
     @PostMapping("/signing")
@@ -88,10 +86,8 @@ public class AuthController {
                                                                LoginRequest loginRequest){
      String username = loginRequest.getEmail();
      String password = loginRequest.getPassword();
-
      Authentication authentication = authenticate(username, password);
      SecurityContextHolder.getContext().setAuthentication(authentication);
-
      String token = jwtProvider.generateToken(authentication);
      AuthResponse authResponse = new AuthResponse();
      authResponse.setJwt(token);
@@ -100,7 +96,6 @@ public class AuthController {
      return new ResponseEntity<AuthResponse>(authResponse,HttpStatus.CREATED);
 
     }
-
     private Authentication authenticate(String username, String password) {
         UserDetails userDetails = candidateServiceImplementation.loadUserByUsername(username);
 

@@ -11,17 +11,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Table(
-        name = "tbl_stream"
+        name = "tbl_specialisation"
 )
-public class Stream {
+public class Specialisation {
     @Id
     @SequenceGenerator(
-            name = "stream_sequence",
-            sequenceName = "stream_sequence",
+            name = "specialisation_sequence",
+            sequenceName = "specialisation_sequence",
             allocationSize = 1
     )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stream_sequence")
-    private Long streamID;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "specialisation_sequence")
+    private Long specialisation_id;
     private String name;
     //create a relationship with candidate
     @ManyToOne(cascade = CascadeType.ALL)
@@ -46,4 +46,36 @@ public class Stream {
             referencedColumnName = "mentor_id"
     )
     private Mentor mentor;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Candidate getCandidate() {
+        return candidate;
+    }
+
+    public void setCandidate(Candidate candidate) {
+        this.candidate = candidate;
+    }
+
+    public Cohort getCohort() {
+        return cohort;
+    }
+
+    public void setCohort(Cohort cohort) {
+        this.cohort = cohort;
+    }
+
+    public Mentor getMentor() {
+        return mentor;
+    }
+
+    public void setMentor(Mentor mentor) {
+        this.mentor = mentor;
+    }
 }
