@@ -1,4 +1,4 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.cohort;
 
 import com.codeworld.capesphereapi.exception.CohortException;
 import com.codeworld.capesphereapi.model.Cohort;

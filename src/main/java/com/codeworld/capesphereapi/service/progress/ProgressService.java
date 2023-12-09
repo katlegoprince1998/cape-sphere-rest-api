@@ -1,4 +1,4 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.progress;
 
 import com.codeworld.capesphereapi.model.Progress;
 import com.codeworld.capesphereapi.request.ProgressRequest;

@@ -1,4 +1,4 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.evaluation;
 
 import com.codeworld.capesphereapi.model.Evaluation;
 import com.codeworld.capesphereapi.request.EvaluationRequest;

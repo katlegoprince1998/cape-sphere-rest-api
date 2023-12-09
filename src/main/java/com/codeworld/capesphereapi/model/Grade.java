@@ -10,8 +10,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tbl_grade")
-//@Getter
-//@Setter
+@Getter
+@Setter
 public class Grade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,43 +36,5 @@ public class Grade {
     )
     private Subject subject;
 
-    public int getScore() {
-        return score;
-    }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
-
-    public LocalDate getDayGraded() {
-        return dayGraded;
-    }
-
-    public void setDayGraded(LocalDate dayGraded) {
-        this.dayGraded = dayGraded;
-    }
-
-    public Candidate getCandidate() {
-        return candidate;
-    }
-
-    public void setCandidate(Candidate candidate) {
-        this.candidate = candidate;
-    }
-
-    public Subject getSubject() {
-        return subject;
-    }
-
-    public void setSubject(Subject subject) {
-        this.subject = subject;
-    }
 }

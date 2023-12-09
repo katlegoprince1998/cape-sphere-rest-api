@@ -1,4 +1,4 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.mentor;
 
 import com.codeworld.capesphereapi.exception.MentorException;
 import com.codeworld.capesphereapi.model.Mentor;

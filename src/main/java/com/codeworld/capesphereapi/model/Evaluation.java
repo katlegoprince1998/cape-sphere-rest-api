@@ -1,10 +1,7 @@
 package com.codeworld.capesphereapi.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -14,6 +11,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 @Table(name = "tbl_evaluation")
+@Getter
+@Setter
 public class Evaluation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,67 +41,4 @@ public class Evaluation {
     )
     private Subject subject;
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getRisk() {
-        return risk;
-    }
-
-    public void setRisk(String risk) {
-        this.risk = risk;
-    }
-
-    public String getPlacement_ready() {
-        return placement_ready;
-    }
-
-    public void setPlacement_ready(String placement_ready) {
-        this.placement_ready = placement_ready;
-    }
-
-    public int getOverallTechScore() {
-        return overallTechScore;
-    }
-
-    public void setOverallTechScore(int overallTechScore) {
-        this.overallTechScore = overallTechScore;
-    }
-
-    public LocalDate getLastUpdate() {
-        return lastUpdate;
-    }
-
-    public void setLastUpdate(LocalDate lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    public String getRecommendation() {
-        return recommendation;
-    }
-
-    public void setRecommendation(String recommendation) {
-        this.recommendation = recommendation;
-    }
-
-    public Candidate getCandidate() {
-        return candidate;
-    }
-
-    public void setCandidate(Candidate candidate) {
-        this.candidate = candidate;
-    }
-
-    public Subject getSubject() {
-        return subject;
-    }
-
-    public void setSubject(Subject subject) {
-        this.subject = subject;
-    }
 }

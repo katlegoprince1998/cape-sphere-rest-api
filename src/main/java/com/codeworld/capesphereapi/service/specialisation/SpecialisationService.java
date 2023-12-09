@@ -1,4 +1,4 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.specialisation;
 
 import com.codeworld.capesphereapi.model.Specialisation;
 import com.codeworld.capesphereapi.request.SpecialisationRequest;

@@ -1,4 +1,4 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.progress;
 
 import com.codeworld.capesphereapi.model.Candidate;
 import com.codeworld.capesphereapi.model.Progress;
@@ -7,12 +7,13 @@ import com.codeworld.capesphereapi.repository.CandidateRepository;
 import com.codeworld.capesphereapi.repository.ProgressRepository;
 import com.codeworld.capesphereapi.repository.SubjectRepository;
 import com.codeworld.capesphereapi.request.ProgressRequest;
+import com.codeworld.capesphereapi.service.progress.ProgressService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ProgressServiceImplementation implements ProgressService{
+public class ProgressServiceImplementation implements ProgressService {
     private final CandidateRepository candidateRepository;
     private final SubjectRepository subjectRepository;
     private final ProgressRepository progressRepository;

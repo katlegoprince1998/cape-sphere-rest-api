@@ -1,15 +1,16 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.candidate;
 
 import com.codeworld.capesphereapi.config.JwtProvider;
 import com.codeworld.capesphereapi.exception.CandidateException;
 import com.codeworld.capesphereapi.model.Candidate;
 import com.codeworld.capesphereapi.repository.CandidateRepository;
+import com.codeworld.capesphereapi.service.candidate.CandidateService;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class CandidateServiceImplementation implements CandidateService{
+public class CandidateServiceImplementation implements CandidateService {
     private CandidateRepository candidateRepository;
     private JwtProvider jwtProvider;
 

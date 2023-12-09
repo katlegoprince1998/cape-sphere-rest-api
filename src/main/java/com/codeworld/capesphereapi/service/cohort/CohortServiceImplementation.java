@@ -1,19 +1,19 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.cohort;
 
 import com.codeworld.capesphereapi.exception.CohortException;
 import com.codeworld.capesphereapi.model.Cohort;
 import com.codeworld.capesphereapi.repository.CohortRepository;
 import com.codeworld.capesphereapi.request.CreateCohortRequest;
+import com.codeworld.capesphereapi.service.candidate.CandidateService;
+import com.codeworld.capesphereapi.service.cohort.CohortService;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class CohortServiceImplementation implements CohortService{
+public class CohortServiceImplementation implements CohortService {
 
     private final CohortRepository cohortRepository;
     private CandidateService candidateService;

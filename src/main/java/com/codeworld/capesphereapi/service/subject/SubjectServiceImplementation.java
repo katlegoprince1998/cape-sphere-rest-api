@@ -1,10 +1,11 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.subject;
 
 import com.codeworld.capesphereapi.model.Candidate;
 import com.codeworld.capesphereapi.model.Subject;
 import com.codeworld.capesphereapi.repository.CandidateRepository;
 import com.codeworld.capesphereapi.repository.SubjectRepository;
 import com.codeworld.capesphereapi.request.SubjectRequest;
+import com.codeworld.capesphereapi.service.subject.SubjectService;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -13,8 +14,8 @@ import java.util.List;
 @Service
 public class SubjectServiceImplementation implements SubjectService {
 
-    private SubjectRepository subjectRepository;
-    private CandidateRepository candidateRepository;
+    private final SubjectRepository subjectRepository;
+    private final CandidateRepository candidateRepository;
 
     public SubjectServiceImplementation(SubjectRepository subjectRepository,
                                         CandidateRepository candidateRepository){
@@ -32,7 +33,7 @@ public class SubjectServiceImplementation implements SubjectService {
         return subjectRepository.save(subject);
     }
     @Override
-    public List<Subject> getAllSubject() {
-        return subjectRepository.findAll();
+    public List<Subject> getAllSubject(Long candidate_id) {
+        return subjectRepository.getSubjectByCandidateId(candidate_id);
     }
 }

@@ -1,15 +1,15 @@
 package com.codeworld.capesphereapi.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Getter
+@Setter
 @Table(
         name = "tbl_specialisation"
 )
@@ -47,35 +47,4 @@ public class Specialisation {
     )
     private Mentor mentor;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Candidate getCandidate() {
-        return candidate;
-    }
-
-    public void setCandidate(Candidate candidate) {
-        this.candidate = candidate;
-    }
-
-    public Cohort getCohort() {
-        return cohort;
-    }
-
-    public void setCohort(Cohort cohort) {
-        this.cohort = cohort;
-    }
-
-    public Mentor getMentor() {
-        return mentor;
-    }
-
-    public void setMentor(Mentor mentor) {
-        this.mentor = mentor;
-    }
 }

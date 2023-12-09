@@ -1,4 +1,4 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.candidate;
 
 import com.codeworld.capesphereapi.model.Candidate;
 import com.codeworld.capesphereapi.repository.CandidateRepository;

@@ -1,4 +1,4 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.candidate;
 
 import com.codeworld.capesphereapi.exception.CandidateException;
 import com.codeworld.capesphereapi.model.Candidate;

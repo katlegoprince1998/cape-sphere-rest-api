@@ -1,11 +1,10 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.mentor;
 
 import com.codeworld.capesphereapi.exception.MentorException;
 import com.codeworld.capesphereapi.model.Mentor;
 import com.codeworld.capesphereapi.repository.MentorRepository;
 import com.codeworld.capesphereapi.request.CreateMentorRequest;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import com.codeworld.capesphereapi.service.mentor.MentorService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class MentorServiceImplementation implements MentorService{
+public class MentorServiceImplementation implements MentorService {
     private final MentorRepository mentorRepository;
 
 

@@ -1,16 +1,15 @@
 package com.codeworld.capesphereapi.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
+@Setter
 @Table(name = "tbl_progress")
 public class Progress {
     @Id
@@ -37,35 +36,4 @@ public class Progress {
     )
     private Subject subject;
 
-    public double getCurrent() {
-        return current;
-    }
-
-    public void setCurrent(double current) {
-        this.current = current;
-    }
-
-    public double getOverall() {
-        return overall;
-    }
-
-    public void setOverall(double overall) {
-        this.overall = overall;
-    }
-
-    public Candidate getCandidate() {
-        return candidate;
-    }
-
-    public void setCandidate(Candidate candidate) {
-        this.candidate = candidate;
-    }
-
-    public Subject getSubject() {
-        return subject;
-    }
-
-    public void setSubject(Subject subject) {
-        this.subject = subject;
-    }
 }

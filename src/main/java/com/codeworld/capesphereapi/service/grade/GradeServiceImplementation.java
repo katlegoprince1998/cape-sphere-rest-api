@@ -1,4 +1,4 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.grade;
 
 import com.codeworld.capesphereapi.model.Candidate;
 import com.codeworld.capesphereapi.model.Grade;
@@ -11,10 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
 @Service
-public class GradeServiceImplementation implements GradeInterface{
+public class GradeServiceImplementation implements GradeService {
     @Autowired
     private GradeRepository gradeRepository;
     @Autowired
@@ -23,12 +24,12 @@ public class GradeServiceImplementation implements GradeInterface{
     private SubjectRepository subjectRepository;
 
     @Override
-    public Grade createGrade(GradeRequest request, Long candidate_id) {
-//        Subject subject = subjectRepository.findById(subject_id).get();
+    public Grade createGrade(GradeRequest request, Long candidate_id, Long subject_id) {
+        Subject subject = subjectRepository.findById(subject_id).get();
         Candidate candidate = candidateRepository.findById(candidate_id).get();
         Grade grade = new Grade();
         grade.setCandidate(candidate);
-       // grade.setSubject(subject);
+        grade.setSubject(subject);
         grade.setScore(request.getScore());
         grade.setTotal(request.getTotal());
         grade.setDayGraded(LocalDate.now());
@@ -36,7 +37,7 @@ public class GradeServiceImplementation implements GradeInterface{
 
     }
     @Override
-    public List<Grade> candidateGrades(Long candidate_grade) {
-        return null;
+    public List<Grade> candidateGrades(Long candidate_id) {
+        return gradeRepository.findAllById(Collections.singleton(candidate_id));
     }
 }

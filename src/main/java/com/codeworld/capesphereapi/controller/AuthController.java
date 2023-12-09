@@ -6,7 +6,7 @@ import com.codeworld.capesphereapi.model.Candidate;
 import com.codeworld.capesphereapi.repository.CandidateRepository;
 import com.codeworld.capesphereapi.request.LoginRequest;
 import com.codeworld.capesphereapi.response.AuthResponse;
-import com.codeworld.capesphereapi.service.CustomeCandidateServiceImplementation;
+import com.codeworld.capesphereapi.service.candidate.CustomeCandidateServiceImplementation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;

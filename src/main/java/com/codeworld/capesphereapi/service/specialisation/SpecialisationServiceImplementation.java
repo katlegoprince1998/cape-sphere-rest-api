@@ -1,4 +1,4 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.specialisation;
 
 import com.codeworld.capesphereapi.model.Candidate;
 import com.codeworld.capesphereapi.model.Cohort;
@@ -9,12 +9,13 @@ import com.codeworld.capesphereapi.repository.CohortRepository;
 import com.codeworld.capesphereapi.repository.MentorRepository;
 import com.codeworld.capesphereapi.repository.SpecialisationRepository;
 import com.codeworld.capesphereapi.request.SpecialisationRequest;
+import com.codeworld.capesphereapi.service.specialisation.SpecialisationService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class SpecialisationServiceImplementation implements SpecialisationService{
+public class SpecialisationServiceImplementation implements SpecialisationService {
 
     private SpecialisationRepository specialisationRepository;
     private MentorRepository mentorRepository;

@@ -1,4 +1,4 @@
-package com.codeworld.capesphereapi.service;
+package com.codeworld.capesphereapi.service.evaluation;
 
 import com.codeworld.capesphereapi.model.Candidate;
 import com.codeworld.capesphereapi.model.Evaluation;
@@ -7,13 +7,14 @@ import com.codeworld.capesphereapi.repository.CandidateRepository;
 import com.codeworld.capesphereapi.repository.EvaluationRepository;
 import com.codeworld.capesphereapi.repository.SubjectRepository;
 import com.codeworld.capesphereapi.request.EvaluationRequest;
+import com.codeworld.capesphereapi.service.evaluation.EvaluationService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class EvaluationServiceImplementation implements EvaluationService{
+public class EvaluationServiceImplementation implements EvaluationService {
 
     private CandidateRepository candidateRepository;
     private SubjectRepository subjectRepository;
