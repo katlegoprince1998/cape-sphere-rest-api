@@ -33,7 +33,6 @@ public class CohortServiceImplementation implements CohortService {
         cohort.setEndDate(request.getEndDate());
         return cohortRepository.save(cohort);
     }
-
     @Override
     public String deleteCohort(Long cohort_id) throws CohortException {
         Cohort cohort1 = findCohortById(cohort_id);

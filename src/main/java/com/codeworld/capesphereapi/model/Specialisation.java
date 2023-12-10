@@ -3,6 +3,10 @@ package com.codeworld.capesphereapi.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -24,12 +28,8 @@ public class Specialisation {
     private Long specialisation_id;
     private String name;
     //create a relationship with candidate
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(
-            name = "candidateID",
-            referencedColumnName = "candidate_id"
-    )
-    private Candidate candidate;
+    @OneToMany(mappedBy = "candidateID", cascade = CascadeType.ALL)
+    private Set<Candidate> candidate = new HashSet<>();
 
     //create a relationship with Cohort
     @ManyToOne(

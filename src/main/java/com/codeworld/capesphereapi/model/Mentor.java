@@ -15,7 +15,7 @@ public class Mentor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long mentor_id;
-    private String fullName;
+    private String name;
     private String email;
     private String phone;
 }

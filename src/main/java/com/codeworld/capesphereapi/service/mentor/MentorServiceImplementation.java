@@ -23,7 +23,7 @@ public class MentorServiceImplementation implements MentorService {
     @Override
     public Mentor createMentor(CreateMentorRequest request) {
         Mentor mentor = new Mentor();
-        mentor.setFullName(request.getFullName());
+        mentor.setName(request.getName());
         mentor.setEmail(request.getEmail());
         mentor.setPhone(request.getPhone());
         return mentorRepository.save(mentor);
@@ -32,8 +32,8 @@ public class MentorServiceImplementation implements MentorService {
     public Mentor updateMentor(Mentor req, Long mentor_id) throws MentorException {
 
         Mentor mentor1 = findMentorById(mentor_id);
-        if(Objects.nonNull(req.getFullName()) && !"".equalsIgnoreCase(req.getFullName())){
-            mentor1.setFullName(req.getFullName());
+        if(Objects.nonNull(req.getName()) && !"".equalsIgnoreCase(req.getName())){
+            mentor1.setName(req.getName());
         }
         if(Objects.nonNull(req.getEmail()) && !"".equalsIgnoreCase(req.getEmail())){
             mentor1.setEmail(req.getEmail());

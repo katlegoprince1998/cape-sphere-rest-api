@@ -30,12 +30,12 @@ public class Cohort {
     )
     private Long cohortID;
     private String name;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private String startDate;
+    private String endDate;
 
     //create a relationship with stream
     @JsonIgnore
     @OneToMany(mappedBy = "cohort")
-    private Set<Specialisation> streams = new HashSet<>();
+    private Set<Specialisation> specialisations = new HashSet<>();
 
 }

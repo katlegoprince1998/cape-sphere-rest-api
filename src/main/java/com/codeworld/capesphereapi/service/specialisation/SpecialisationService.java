@@ -6,7 +6,7 @@ import com.codeworld.capesphereapi.request.SpecialisationRequest;
 import java.util.List;
 
 public interface SpecialisationService {
-    Specialisation createSpecialisation(SpecialisationRequest request, Long candidate_id,
+    Specialisation createSpecialisation(SpecialisationRequest request,
                                         Long mentor_id, Long cohort_id);
 
     List<Specialisation> getAllSpecialisation();

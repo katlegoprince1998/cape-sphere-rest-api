@@ -3,7 +3,9 @@ package com.codeworld.capesphereapi.controller;
 import com.codeworld.capesphereapi.config.JwtProvider;
 import com.codeworld.capesphereapi.exception.CandidateException;
 import com.codeworld.capesphereapi.model.Candidate;
+import com.codeworld.capesphereapi.model.Specialisation;
 import com.codeworld.capesphereapi.repository.CandidateRepository;
+import com.codeworld.capesphereapi.repository.SpecialisationRepository;
 import com.codeworld.capesphereapi.request.LoginRequest;
 import com.codeworld.capesphereapi.response.AuthResponse;
 import com.codeworld.capesphereapi.service.candidate.CustomeCandidateServiceImplementation;
@@ -15,10 +17,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -26,21 +25,24 @@ public class AuthController {
     private final CandidateRepository candidateRepository;
     private final JwtProvider jwtProvider;
     private final PasswordEncoder passwordEncoder;
+    private final SpecialisationRepository repository;
 
     private final CustomeCandidateServiceImplementation candidateServiceImplementation;
 
     public AuthController(CandidateRepository candidateRepository, CustomeCandidateServiceImplementation
             candidateServiceImplementation, PasswordEncoder passwordEncoder,
-                          JwtProvider jwtProvider) {
+                          JwtProvider jwtProvider, SpecialisationRepository repository) {
         this.candidateRepository = candidateRepository;
         this.candidateServiceImplementation = candidateServiceImplementation;
         this.passwordEncoder = passwordEncoder;
         this.jwtProvider = jwtProvider;
+        this.repository = repository;
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/specialisation/{specialisation_id}/signup")
     public ResponseEntity<AuthResponse> createCandidateHandler(
-            @RequestBody Candidate candidate
+            @RequestBody Candidate candidate,
+            @PathVariable("specialisation_id") Long specialisation_id
     ) throws CandidateException {
         String email = candidate.getEmail();
         String password = candidate.getPassword();
@@ -48,6 +50,8 @@ public class AuthController {
         String lastname = candidate.getLastname();
         String idNo = candidate.getIdentityNO();
         String phone = candidate.getPhoneNumber();
+        Specialisation specialisation = repository.findById(specialisation_id).get();
+
 
         Candidate isEmailExist = candidateRepository.findByEmail(email);
 
@@ -63,6 +67,7 @@ public class AuthController {
         createdCandidate.setLastname(lastname);
         createdCandidate.setIdentityNO(idNo);
         createdCandidate.setPhoneNumber(phone);
+        createdCandidate.setSpecialisation(specialisation);
 
         Candidate savedCandidate = candidateRepository.save(createdCandidate);
 

@@ -59,7 +59,11 @@ public class Candidate {
 
     //create a relationship with stream
     @JsonIgnore
-    @OneToMany(mappedBy = "candidate")
-    private Set<Specialisation> streams = new HashSet<>();
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "specialisation_id"
+
+    )
+    private Specialisation specialisation;
 
 }
