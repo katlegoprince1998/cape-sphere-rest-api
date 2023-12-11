@@ -24,7 +24,7 @@ public class GradeController {
     }
 
     @GetMapping("/get/grades/{candidate_id}")
-    public List<Grade> getAllGrades(@PathVariable("candidate_grade") Long candidate_id){
+    public List<Grade> getAllGrades(@PathVariable("candidate_id") Long candidate_id){
         return gradeService.candidateGrades(candidate_id);
     }
 }

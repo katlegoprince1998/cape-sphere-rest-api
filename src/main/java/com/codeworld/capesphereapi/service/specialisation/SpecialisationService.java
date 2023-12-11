@@ -9,5 +9,5 @@ public interface SpecialisationService {
     Specialisation createSpecialisation(SpecialisationRequest request,
                                         Long mentor_id, Long cohort_id);
 
-    List<Specialisation> getAllSpecialisation();
+    Specialisation getCandidateSpecialisation(Long candidate_id);
 }

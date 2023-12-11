@@ -19,10 +19,10 @@ import java.util.List;
 @Service
 public class SpecialisationServiceImplementation implements SpecialisationService {
 
-    private SpecialisationRepository specialisationRepository;
-    private MentorRepository mentorRepository;
+    private final SpecialisationRepository specialisationRepository;
+    private final MentorRepository mentorRepository;
 
-    private CohortRepository cohortRepository;
+    private final CohortRepository cohortRepository;
 
     public SpecialisationServiceImplementation(SpecialisationRepository specialisationRepository,
                                                MentorRepository mentorRepository,
@@ -44,8 +44,10 @@ public class SpecialisationServiceImplementation implements SpecialisationServic
 
         return specialisationRepository.save(specialisation);
     }
+
     @Override
-    public List<Specialisation> getAllSpecialisation() {
-        return specialisationRepository.findAll();
+    public Specialisation getCandidateSpecialisation(Long candidate_id) {
+        return specialisationRepository.getSpecialisation(candidate_id);
     }
+
 }

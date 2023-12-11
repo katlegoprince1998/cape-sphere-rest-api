@@ -25,7 +25,7 @@ public class Specialisation {
             allocationSize = 1
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "specialisation_sequence")
-    private Long specialisation_id;
+    private Long id;
     private String name;
     //create a relationship with candidate
     @OneToMany(mappedBy = "candidateID", cascade = CascadeType.ALL)

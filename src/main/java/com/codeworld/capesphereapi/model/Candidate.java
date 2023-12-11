@@ -61,7 +61,8 @@ public class Candidate {
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
-            name = "specialisation_id"
+            name = "specialisation_id",
+            referencedColumnName = "id"
 
     )
     private Specialisation specialisation;

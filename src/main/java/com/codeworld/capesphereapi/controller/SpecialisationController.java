@@ -18,4 +18,10 @@ public class SpecialisationController {
        return service.createSpecialisation(request, mentor_id, cohort_id);
 
     }
+
+    @GetMapping("/get/specialisation/{candidate_id}")
+    public Specialisation getCandiadateSpecialisation(@PathVariable("candidate_id") Long candidate_id){
+        return service.getCandidateSpecialisation(candidate_id);
+    }
+
 }
