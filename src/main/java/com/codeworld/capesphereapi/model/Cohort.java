@@ -38,4 +38,43 @@ public class Cohort {
     @OneToMany(mappedBy = "cohort")
     private Set<Specialisation> specialisations = new HashSet<>();
 
+    public Long getCohortID() {
+        return cohortID;
+    }
+
+    public void setCohortID(Long cohortID) {
+        this.cohortID = cohortID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public Set<Specialisation> getSpecialisations() {
+        return specialisations;
+    }
+
+    public void setSpecialisations(Set<Specialisation> specialisations) {
+        this.specialisations = specialisations;
+    }
 }

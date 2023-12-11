@@ -36,4 +36,43 @@ public class Progress {
     )
     private Subject subject;
 
+    public Long getProgress_id() {
+        return progress_id;
+    }
+
+    public void setProgress_id(Long progress_id) {
+        this.progress_id = progress_id;
+    }
+
+    public double getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(double current) {
+        this.current = current;
+    }
+
+    public double getOverall() {
+        return overall;
+    }
+
+    public void setOverall(double overall) {
+        this.overall = overall;
+    }
+
+    public Candidate getCandidate() {
+        return candidate;
+    }
+
+    public void setCandidate(Candidate candidate) {
+        this.candidate = candidate;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
 }

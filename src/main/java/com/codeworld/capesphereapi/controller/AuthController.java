@@ -48,8 +48,8 @@ public class AuthController {
         String password = candidate.getPassword();
         String firstname = candidate.getFirstname();
         String lastname = candidate.getLastname();
-        String idNo = candidate.getIdentityNO();
-        String phone = candidate.getPhoneNumber();
+        String idNo = candidate.getIdentification();
+        String phone = candidate.getPhone();
         Specialisation specialisation = repository.findById(specialisation_id).get();
 
 
@@ -65,8 +65,8 @@ public class AuthController {
         createdCandidate.setPassword(passwordEncoder.encode(password));
         createdCandidate.setFirstname(firstname);
         createdCandidate.setLastname(lastname);
-        createdCandidate.setIdentityNO(idNo);
-        createdCandidate.setPhoneNumber(phone);
+        createdCandidate.setIdentification(idNo);
+        createdCandidate.setIdentification(phone);
         createdCandidate.setSpecialisation(specialisation);
 
         Candidate savedCandidate = candidateRepository.save(createdCandidate);

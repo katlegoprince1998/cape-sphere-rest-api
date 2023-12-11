@@ -16,9 +16,9 @@ import java.util.List;
 @Service
 public class EvaluationServiceImplementation implements EvaluationService {
 
-    private CandidateRepository candidateRepository;
-    private SubjectRepository subjectRepository;
-    private EvaluationRepository evaluationRepository;
+    private final CandidateRepository candidateRepository;
+    private final SubjectRepository subjectRepository;
+    private final EvaluationRepository evaluationRepository;
 
     public EvaluationServiceImplementation(CandidateRepository candidateRepository,
                                            SubjectRepository subjectRepository,
@@ -48,7 +48,9 @@ public class EvaluationServiceImplementation implements EvaluationService {
     }
 
     @Override
-    public List<Evaluation> getAllEvaluations() {
-        return evaluationRepository.findAll();
+    public List<Evaluation> getAllEvaluations(Long candidate_id) {
+        return evaluationRepository.getCandidateEvaluation(candidate_id);
     }
+
+
 }

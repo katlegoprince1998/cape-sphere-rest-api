@@ -8,5 +8,5 @@ import java.util.List;
 public interface EvaluationService {
     Evaluation createEvaluation(EvaluationRequest request, Long candidate_id,Long subject_id);
 
-    List<Evaluation> getAllEvaluations();
+    List<Evaluation> getAllEvaluations(Long candidate_id);
 }

@@ -39,5 +39,43 @@ public class Subject {
     @OneToMany(mappedBy = "subject")
     private Set<Grade> grades = new HashSet<>();
 
+    public Long getSubject_id() {
+        return subject_id;
+    }
 
+    public void setSubject_id(Long subject_id) {
+        this.subject_id = subject_id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public Set<Candidate> getCandidates() {
+        return candidates;
+    }
+
+    public void setCandidates(Set<Candidate> candidates) {
+        this.candidates = candidates;
+    }
+
+    public Set<Grade> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(Set<Grade> grades) {
+        this.grades = grades;
+    }
 }

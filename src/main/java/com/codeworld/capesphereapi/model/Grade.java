@@ -31,10 +31,57 @@ public class Grade {
     //create a relationship with module
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
-            name = "subject_id",
+            name = "id",
             referencedColumnName = "subject_id"
     )
     private Subject subject;
 
 
+    public Long getGrd_id() {
+        return grd_id;
+    }
+
+    public void setGrd_id(Long grd_id) {
+        this.grd_id = grd_id;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public LocalDate getDayGraded() {
+        return dayGraded;
+    }
+
+    public void setDayGraded(LocalDate dayGraded) {
+        this.dayGraded = dayGraded;
+    }
+
+    public Candidate getCandidate() {
+        return candidate;
+    }
+
+    public void setCandidate(Candidate candidate) {
+        this.candidate = candidate;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
 }

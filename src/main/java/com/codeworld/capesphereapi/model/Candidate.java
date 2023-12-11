@@ -25,9 +25,9 @@ public class Candidate {
     private Long candidateID;
     private String firstname;
     private String lastname;
-    private String identityNO;
+    private String identification;
 
-    private String phoneNumber;
+    private String phone;
     private String email;
     private String password;
     private String role;
@@ -67,4 +67,115 @@ public class Candidate {
     )
     private Specialisation specialisation;
 
+    public Long getCandidateID() {
+        return candidateID;
+    }
+
+    public void setCandidateID(Long candidateID) {
+        this.candidateID = candidateID;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getIdentification() {
+        return identification;
+    }
+
+    public void setIdentification(String identification) {
+        this.identification = identification;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public List<CandidateKin> getCandidateKin() {
+        return candidateKin;
+    }
+
+    public void setCandidateKin(List<CandidateKin> candidateKin) {
+        this.candidateKin = candidateKin;
+    }
+
+    public Set<Subject> getModules() {
+        return modules;
+    }
+
+    public void setModules(Set<Subject> modules) {
+        this.modules = modules;
+    }
+
+    public Set<Grade> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(Set<Grade> grades) {
+        this.grades = grades;
+    }
+
+    public Set<Progress> getProgresses() {
+        return progresses;
+    }
+
+    public void setProgresses(Set<Progress> progresses) {
+        this.progresses = progresses;
+    }
+
+    public Set<Evaluation> getEvaluations() {
+        return evaluations;
+    }
+
+    public void setEvaluations(Set<Evaluation> evaluations) {
+        this.evaluations = evaluations;
+    }
+
+    public Specialisation getSpecialisation() {
+        return specialisation;
+    }
+
+    public void setSpecialisation(Specialisation specialisation) {
+        this.specialisation = specialisation;
+    }
 }
