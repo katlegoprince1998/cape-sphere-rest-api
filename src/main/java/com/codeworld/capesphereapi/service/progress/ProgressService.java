@@ -8,5 +8,5 @@ import java.util.List;
 public interface ProgressService {
     Progress createProgress(ProgressRequest request, Long candidate_id,Long subject_id);
 
-    List<Progress> getAllProgresses();
+    Progress getCandidateProgress(Long candidate_id);
 }

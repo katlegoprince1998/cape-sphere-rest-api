@@ -20,11 +20,12 @@ public class ProgressServiceImplementation implements ProgressService {
 
     public ProgressServiceImplementation(CandidateRepository candidateRepository,
                                          SubjectRepository subjectRepository,
-                                         ProgressRepository progressRepository){
+                                         ProgressRepository progressRepository) {
         this.progressRepository = progressRepository;
         this.candidateRepository = candidateRepository;
         this.subjectRepository = subjectRepository;
     }
+
     @Override
     public Progress createProgress(ProgressRequest request, Long candidate_id, Long subject_id) {
         Candidate candidate = candidateRepository.findById(candidate_id).get();
@@ -39,7 +40,8 @@ public class ProgressServiceImplementation implements ProgressService {
     }
 
     @Override
-    public List<Progress> getAllProgresses() {
-        return progressRepository.findAll();
+    public Progress getCandidateProgress(Long candidate_id) {
+        return progressRepository.getProgress(candidate_id);
     }
+
 }
