@@ -6,7 +6,7 @@ import com.codeworld.capesphereapi.service.progress.ProgressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/progress")
+@RequestMapping("/api/progress")
 @RestController
 public class ProgressController {
     @Autowired

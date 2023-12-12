@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cohort")
+@RequestMapping("/api/cohort")
 public class CohortController {
     @Autowired
     private CohortService service;
