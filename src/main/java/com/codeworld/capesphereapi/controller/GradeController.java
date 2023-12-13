@@ -15,6 +15,7 @@ public class GradeController {
     @Autowired
     private GradeService gradeService;
 
+
     @PostMapping("/addGrade/candidate/{candidateId}/subject/{subject_id}")
     public Grade addGrade(@RequestBody GradeRequest request,
                           @PathVariable("candidateId") Long candidate_id,

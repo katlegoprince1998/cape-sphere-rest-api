@@ -10,6 +10,7 @@ import java.util.List;
 
 @RequestMapping("/api/evaluation")
 @RestController
+
 public class EvaluationController {
     @Autowired
     EvaluationService service;
